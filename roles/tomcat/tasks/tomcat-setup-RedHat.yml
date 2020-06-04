@@ -67,11 +67,22 @@
   firewalld:
     port: 
       - 8080/tcp
+    permanent: true
+    state: enabled
+    immediate: yes
+  firewalld:
+    port: 
       - 443/tcp
+    permanent: true
+    state: enabled
+    immediate: yes
+  firewalld:
+    port: 
       - 80/tcp
     permanent: true
     state: enabled
     immediate: yes
+
   when: ansible_service_mgr == "systemd"
 
 - name: Set UI access credentials
