@@ -63,13 +63,21 @@
     enabled: yes
   when: ansible_service_mgr == "systemd"
 
-- name: Open tomcat port on the firewall
+- name: Open tomcat 8080 port on the firewall
   firewalld:
     port: 
       - 8080/tcp
     permanent: true
     state: enabled
     immediate: yes
+- name: Open tomcat 443 port on the firewall
+  firewalld:
+    port: 
+      - 443/tcp
+    permanent: true
+    state: enabled
+    immediate: yes
+
   firewalld:
     port: 
       - 443/tcp
